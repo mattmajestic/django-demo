@@ -1,18 +1,10 @@
 FROM python:3.8
 
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Set working directory
-WORKDIR /app
+# Copy project files to the root directory of the image
+COPY . .
 
 # Install dependencies
-COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy project files to the working directory
-COPY . /app/
 
 # Expose the port the app runs on
 EXPOSE 8000
